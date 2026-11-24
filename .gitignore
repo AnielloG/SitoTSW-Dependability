@@ -17,4 +17,5 @@ out/
 .env
 *.local
 *.log
+.vscode/
 

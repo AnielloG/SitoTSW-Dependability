@@ -1,67 +1,76 @@
-# 3GVintage - E-commerce di Abbigliamento Vintage
+# 3GVintage - Progetto di Dependability
 
-## Descrizione del Progetto
+Questa repository contiene il progetto **3GVintage**, un e-commerce di abbigliamento vintage
+di seconda mano, utilizzato come caso di studio per le attività del progetto di **Dependability**.
 
-**3GVintage** è un e-commerce dedicato alla vendita di abbigliamento vintage di seconda mano. Il progetto è stato realizzato come parte del corso "Tecnologie Software per il WEB" presso l'Università degli Studi di Salerno durante l'Anno Accademico 2023/2024.
+---
 
-L'obiettivo del sito è quello di fornire ai clienti una piattaforma semplice e intuitiva per acquistare capi di abbigliamento vintage, puntando sulla qualità dei prodotti, la trasparenza e la fiducia con i clienti, attraverso offerte, aggiornamenti costanti del catalogo e un servizio clienti rapido.
+## 1. Specifiche del progetto
 
-Il sito è completamente **responsive**, adattandosi a diverse dimensioni di schermo, e offre una navigazione fluida e chiara, con un design pensato per la semplicità e la fruibilità.
+Il sistema è stato sviluppato originariamente per il corso di *Tecnologie Software per il Web*
+(A.A. 2023/2024, Università degli Studi di Salerno) ed è documentato nel README della
+repository originale:
 
+👉 [README del progetto TSW (SitoTSW)](https://github.com/AnielloG/SitoTSW/blob/main/README.md)
 
-## Funzionalità
+Questa repository riprende quel codice come base su cui svolgere le attività richieste
+dal progetto di Software Dependability.
 
-### Lato Guest (Utente non registrato)
-- Visualizzazione del catalogo prodotti
-- Dettagli dei prodotti
-- Aggiunta/rimozione prodotti dal carrello
-- Ricerca dei prodotti per parole chiave
-- Suggerimenti dinamici nella barra di ricerca
-- Registrazione (necessaria per completare un acquisto)
+---
 
-### Lato Utente Registrato
-- Login e finalizzazione acquisti
-- Visualizzazione ordini precedenti
-- Accesso all’assistenza clienti
+## 2. Come avviare il sito
 
-### Lato Amministratore
-- Gestione dei prodotti: aggiunta, modifica e rimozione articoli
-- Gestione degli ordini: visualizzazione e filtro degli ordini
-- Gestione delle spedizioni
-- Supporto tecnico per gli utenti
+### Prerequisiti
 
-## Tecnologie Utilizzate
+- **JDK** (versione compatibile con il progetto, ad esempio 11 o superiore)
+- **Apache Tomcat** (versione compatibile con le Servlet usate, ad esempio 9.x)
+- **MySQL** (server in esecuzione in locale o raggiungibile in rete)
+- Un IDE Java con supporto a Tomcat (Eclipse, IntelliJ IDEA, NetBeans...) oppure la sola
+  riga di comando
 
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Backend**: Java (Servlets, JSP)
-- **Database**: MySQL
-- **IDE**: Eclipse 
-- **Altro**: Architettura MVC, Design responsive
+### Passaggi
 
-## Struttura del Progetto
+1. **Clonare la repository**
+   ```bash
+   git clone <>
+   cd <>
+   ```
 
-Il progetto segue il modello architetturale MVC (Model-View-Controller) per mantenere una separazione tra la logica di business, la gestione della vista e il controllo delle operazioni. La base dati è progettata per gestire informazioni relative agli utenti, ai prodotti, agli ordini e alla gestione delle promozioni.
+2. **Creare il database**
+    - Avviare MySQL e creare uno schema (ad esempio `3gvintage`).
+    - Eseguire lo script SQL presente nella repository (`<.sql>`) per creare
+      le tabelle e, se previsto, i dati di esempio.
 
-## Layout e Scelta dei Colori
+3. **Configurare le credenziali del database**
+   Il progetto si collega a MySQL tramite JDBC. Le credenziali (URL, utente, password) si
+   impostano nella classe o nel file di configurazione che crea la connessione, in genere una
+   classe di utilità nel package del modello (es. `<percorso/ClasseConnessione.java>`).
+   Occorre indicare:
+    - **URL** JDBC, ad esempio `jdbc:mysql://localhost:3306/<nome_database>`
+    - **Username** dell'utente MySQL
+    - **Password** dell'utente MySQL
 
-Il layout del sito è stato progettato per essere semplice e minimalista, con l'utilizzo di una palette di colori che si allinea all'estetica del vintage e dello sile retò, per offrire agli utenti un'esperienza di navigazione confortevole e piacevole.
+4. **Configurare Tomcat**
+    - *Da IDE*: aggiungere un server Tomcat nelle impostazioni dell'IDE, importare il progetto
+      come Dynamic Web Project / progetto Maven (a seconda della struttura) e fare il deploy
+      sul server.
+    - *Da riga di comando*: generare il file `.war` (ad esempio con `mvn package` se è
+      presente il `pom.xml`, oppure esportando il progetto dall'IDE), copiarlo nella cartella
+      `webapps` di Tomcat e avviare il server con `bin/startup.sh` (Linux/macOS) o
+      `bin\startup.bat` (Windows).
 
-## Database
+5. **Aprire il sito**
+   Con Tomcat attivo, il sito è raggiungibile da browser all'indirizzo: http://localhost:8080/<nome-contesto>/
 
-Il database è strutturato per supportare tutte le funzionalità chiave del sito, incluse le tabelle per la gestione degli utenti, delle immagini, dei prodotti, degli ordini e delle promozioni.
+## 3. Documentazione delle lezioni
 
-## Autori
+Ogni lezione svolta per il progetto di Dependability ha un README dedicato. L'elenco viene
+aggiornato man mano che si procede con le richieste.
 
-- Aniello Giamundo - [Matricola: 0512118649]
-- Diana Gagliardi - [Matricola: 0512117086]
-- Gabriella Fede - [Matricola: 0512117296]
-
-## Docente
-
-- Prof. Rita Francese
-
-## Anno Accademico
-
-- 2023/2024
+| # | Lezione / Attività | README |
+|---|--------------------|--------|
+| 1 | _da definire_ | _link in arrivo_ |
+| 2 | _da definire_ | _link in arrivo_ |
+| 3 | _da definire_ | _link in arrivo_ |
 
 ---
